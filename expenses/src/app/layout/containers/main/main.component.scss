@@ -1,15 +1,24 @@
+@import '../../../../theme/variables';
+
 .header{
-  border: 1px solid red;
+
+  background-color: $primary;
 }
 .middle{
-  border: 1px solid red;
+height: 90vh;
   .sidenav{
-    border: 1px solid red;
+    width: 16rem;
+    background-color: $primary;
   }
   .content{
-    border: 1px solid red;
+    width: 100%;
+    background-color: $secondary;
   }
 }
 .footer{
-  border: 1px solid red;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: .2rem;
+  background-color: $primary;
 }

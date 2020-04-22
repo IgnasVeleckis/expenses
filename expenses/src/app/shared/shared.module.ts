@@ -22,6 +22,6 @@ const COMPONENTS = [ButtonComponent, IconComponent, InputComponent, PieChartComp
     CommonModule,
     ChartsModule
   ],
-  exports: [...COMPONENTS]
+  exports: [...COMPONENTS, LineChartComponent]
 })
 export class SharedModule { }

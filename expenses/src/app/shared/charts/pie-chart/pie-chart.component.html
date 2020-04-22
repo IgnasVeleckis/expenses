@@ -1,10 +1,18 @@
-<div class="chart-wrapper">
-  <canvas baseChart
-          [data]="pieChartData"
-          [labels]="pieChartLabels"
-          [chartType]="pieChartType"
-          [options]="pieChartOptions"
-          [plugins]="pieChartPlugins"
-          [legend]="pieChartLegend">
-  </canvas>
+<div class="container flex direction-column">
+
+  <div class="title flex justify-center m-b-md text-lg">
+    {{ title }}
+  </div>
+  <div class="chart-container">
+    <canvas baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+    </canvas>
+  </div>
+
 </div>
+
