@@ -1,3 +1,20 @@
-<app-header></app-header>
-  <router-outlet></router-outlet>
-<app-footer></app-footer>
+<div class="header page-height-10">
+  <app-header></app-header>
+</div>
+
+
+<div class="middle flex page-height-80">
+
+  <div class="sidenav page-width-20">
+    <app-side-nav></app-side-nav>
+  </div>
+
+  <div class="content page-width-80">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+
+<div class="footer page-height-10">
+  <app-footer></app-footer>
+</div>

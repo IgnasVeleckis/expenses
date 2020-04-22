@@ -1,0 +1,8 @@
+@import "../../../../theme/variables";
+.link{
+  border: 1px solid red;
+  width: 40%;
+  &:hover{
+    cursor: pointer;
+  }
+}

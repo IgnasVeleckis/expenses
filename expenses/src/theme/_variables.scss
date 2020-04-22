@@ -1,0 +1,31 @@
+// Colors storm
+$primary: #6bccef;
+$secondary: #051421;
+$accent: rgb(255, 217, 0);
+
+/* html[data-theme=storm] {
+    $primary: #6bccef;
+    $secondary: #051421;
+    $accent: rgb(255, 217, 0);
+}
+
+// Colors forest
+html[data-theme=forest] {
+    $primary: #ff00d4;
+    $secondary: #5a00a3;
+    $accent: rgb(255, 217, 0);
+} */
+
+// Text size
+$text-xs: .6rem;
+$text-sm: .8rem;
+$text-md: 1.2rem;
+$text-lg: 1.6rem;
+$text-xl: 2.4rem;
+$text-xxl: 3.2rem;
+// Spacing size
+$spacing-xs: .25rem;
+$spacing-sm: .5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 3rem;
