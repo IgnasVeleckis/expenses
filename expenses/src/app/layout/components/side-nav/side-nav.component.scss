@@ -1,13 +1,23 @@
 @import "../../../../theme/variables";
 .sidenav{
   height: 100%;
+  width: 16rem;
   .link{
     width: 100%;
     height: 5rem;
     transition: .2s;
+    &.active{
+      background-color: $secondary;
+      width: 105%
+
+    }
     &:hover{
       cursor: pointer;
       background-color: $secondary;
+      width: 105%
+    }
+    &:focus{
+      outline: none;
     }
   }
 }

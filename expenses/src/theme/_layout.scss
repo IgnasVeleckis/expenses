@@ -221,6 +221,9 @@
         &-evenly {
             justify-content: space-evenly;
         }
+        &-flex-end{
+          justify-content: flex-end;
+        }
     }
     &.align {
         &-center {
@@ -273,4 +276,11 @@
     &-100 {
         width: 100%;
     }
+}
+
+
+// BOX SHADOW
+
+.shadow-light{
+  box-shadow: $box-shadow;
 }

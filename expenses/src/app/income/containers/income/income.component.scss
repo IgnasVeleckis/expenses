@@ -1,0 +1,35 @@
+@import "../../../../theme/variables";
+.container{
+
+  .addIncomeTable{
+    height: 70%;
+    width: 70%;
+    background-color: #a6aee4;
+    position: absolute;
+    z-index: 9;
+    top: 14%;
+    left: 14%;
+    animation: popUp 1s;
+    &.hide{
+      display: none;
+    }
+    &.show{
+      display: block;
+    }
+  }
+
+
+  .income-source{
+
+  }
+}
+
+@keyframes popUp {
+  0% {
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
+
+}

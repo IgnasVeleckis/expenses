@@ -12,8 +12,6 @@ import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
 import { LineChartComponent } from './charts/line-chart/line-chart.component';
 
 
-/*import { HighchartsChartModule } from 'highcharts-angular';*/ // 34.29
-
 const COMPONENTS = [ButtonComponent, IconComponent, InputComponent, PieChartComponent]
 
 @NgModule({

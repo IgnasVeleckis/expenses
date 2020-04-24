@@ -1,24 +1,38 @@
 @import '../../../../theme/variables';
 
 .header{
-
   background-color: $primary;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 .middle{
-height: 90vh;
+
   .sidenav{
-    width: 16rem;
     background-color: $primary;
+    height: 100%;
+    width: 16rem;
+    position: fixed;
+    z-index: 1;
+    top: 50px;
+    left: 0;
+    z-index: 5;
   }
   .content{
-    width: 100%;
+
+    min-height: 100%;
     background-color: $secondary;
+    margin-left: 16rem;
+    margin-top: 50px;
+    z-index: 10;
   }
 }
-.footer{
+/*.footer{
   position: fixed;
   bottom: 0;
   width: 100%;
   padding: .2rem;
   background-color: $primary;
-}
+}*/
