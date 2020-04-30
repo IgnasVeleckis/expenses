@@ -1,0 +1,30 @@
+<div class="container flex direction-column align-center">
+  <div class="title text-xl p-t-md">
+    Add new income source
+  </div>
+  <form [formGroup]="addExpenseForm" class="p-t-lg flex direction-column" (ngSubmit)="onSubmit()">
+    <!--<app-input title="Name of new income source" type="text" formControlName="incomeName"></app-input>
+    <app-input title="Active / passive" type="text" formControlName="incomeStatus"></app-input>
+    <app-input title="Generates per month" type="text" formControlName="incomeGenerates"></app-input>-->
+
+    <label>
+      New expense name:
+      <br>
+      <input type="text" formControlName="name">
+    </label>
+
+
+    <label>
+      Generates per month:
+      <br>
+      <input type="number" formControlName="takesPerMonth">
+    </label>
+
+    <div class="flex justify-center">
+      <app-button text="ADD" type="submit"></app-button>
+    </div>
+  </form>
+
+
+</div>
+

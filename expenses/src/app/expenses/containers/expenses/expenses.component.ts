@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ExpenseService} from '../../../../core/services/expense.service';
 
 @Component({
   selector: 'app-expenses',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./expenses.component.scss']
 })
 export class ExpensesComponent implements OnInit {
-
-  constructor() { }
+  expenseTableStatus: boolean;
+  constructor(
+    private expenseService: ExpenseService
+  ) {
+    this.expenseTableStatus = expenseService.tableStatus;
+  }
 
   ngOnInit() {
+  }
+
+  toggleAddExpenseTable() {
+    this.expenseTableStatus = !this.expenseTableStatus;
   }
 
 }

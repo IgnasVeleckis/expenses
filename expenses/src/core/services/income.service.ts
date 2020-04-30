@@ -20,15 +20,13 @@ export class IncomeService {
     }
   ];
 
-  addToList(item){
+  getIncomes() {
+    // http request from json
+  }
+
+  addToList(item) {
     this.listOfIncomes.push(item);
     console.log(this.listOfIncomes);
-    for(const item in this.listOfIncomes){
-      this.total.push(this.listOfIncomes[item].generatesPerMonth);
-    }
-
-    console.log(this.total);
-
   }
 
 }

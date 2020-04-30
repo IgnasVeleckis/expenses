@@ -1,1 +1,22 @@
-<p>expenses works!</p>
+<div class="container p-md">
+
+  <div class="income-source">
+
+    <app-expenses-list></app-expenses-list>
+
+    <div class="buttons flex justify-center p-t-xl">
+      <app-button text="ADD EXPENSE" (click)="toggleAddExpenseTable()"></app-button>
+    </div>
+
+  </div>
+
+
+  <div class="addExpenseTable shadow-light p-md" [ngClass]="expenseTableStatus? 'show' : 'hide'" >
+    <div class="flex justify-flex-end">
+      <app-icon (click)="toggleAddExpenseTable()"></app-icon>
+    </div>
+    <app-new-expense-form></app-new-expense-form>
+  </div>
+
+
+</div>
