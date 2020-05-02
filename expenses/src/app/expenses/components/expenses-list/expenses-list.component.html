@@ -1,4 +1,4 @@
-<table  *ngIf="expenseSource">
+<table >
   <caption class="m-b-lg text-xl">My income sources</caption>
 
   <tr class="header">
@@ -7,16 +7,8 @@
     <th>Takes per month</th>
   </tr>
 
-  <tr *ngFor="let item of expenseSource" class="rows">
-    <td>
-      {{ item.name }}
-    </td>
-    <td>
+  <tr class="rows">
 
-    </td>
-    <td>
-      {{ item.takesPerMonth }}
-    </td>
   </tr>
   <tr class="total">
     <td>
@@ -24,7 +16,7 @@
     </td>
     <td></td>
     <td>
-      xxx
+      //total expenses
     </td>
   </tr>
 </table>

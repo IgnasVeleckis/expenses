@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ExpenseService} from '../../../../core/services/expense.service';
-import {IExpense} from '../../../../core/models/IExpense.model';
+import {AppState} from '../../../../core/models/app-state.model';
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs';
+import {ExpenseListItem} from '../../../../core/models/IExpense.model';
 
 @Component({
   selector: 'app-expenses-list',
@@ -9,13 +11,9 @@ import {IExpense} from '../../../../core/models/IExpense.model';
 })
 export class ExpensesListComponent implements OnInit {
 
-  expenseSource: IExpense[] = [];
-  constructor(private expenseService: ExpenseService) {
-    this.expenseSource = this.expenseService.listOfExpenses;
-  }
+  constructor() {}
 
   ngOnInit() {
-    console.log(this.expenseSource);
   }
 
 }

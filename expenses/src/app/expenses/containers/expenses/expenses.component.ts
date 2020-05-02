@@ -7,12 +7,8 @@ import {ExpenseService} from '../../../../core/services/expense.service';
   styleUrls: ['./expenses.component.scss']
 })
 export class ExpensesComponent implements OnInit {
-  expenseTableStatus: boolean;
-  constructor(
-    private expenseService: ExpenseService
-  ) {
-    this.expenseTableStatus = expenseService.tableStatus;
-  }
+  expenseTableStatus = false;
+  constructor() {}
 
   ngOnInit() {
   }
