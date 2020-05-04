@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import {IncomeService} from '../../../../core/services/income.service';
+import { Component } from '@angular/core';
+import {FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-new-income-form',
   templateUrl: './new-income-form.component.html',
   styleUrls: ['./new-income-form.component.scss']
 })
-export class NewIncomeFormComponent {
+export class NewIncomeFormComponent{
 
   constructor(
     private fb: FormBuilder,
-    private incomeService: IncomeService,
   ) { }
+
   addIncomeForm = this.fb.group({
     name: ['', Validators.required],
     status: [''],
@@ -21,8 +20,6 @@ export class NewIncomeFormComponent {
 
   onSubmit() {
     console.log(this.addIncomeForm.value);
-    this.incomeService.addToList(this.addIncomeForm.value);
   }
-
 
 }

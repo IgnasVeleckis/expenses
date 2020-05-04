@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import {ExpenseService} from '../../../../core/services/expense.service';
+import {ExpensesService} from '../../../../core/services/expenses.service';
 
 @Component({
   selector: 'app-expenses',
   templateUrl: './expenses.component.html',
   styleUrls: ['./expenses.component.scss']
 })
-export class ExpensesComponent implements OnInit {
-  expenseTableStatus = false;
-  constructor() {}
+export class ExpensesComponent {
 
-  ngOnInit() {
+  tableShow = false;
+
+  constructor(
+    private expensesService: ExpensesService,
+  ) {}
+
+
+  toggleTable() {
+    this.tableShow = !this.tableShow;
+    console.log('togglinu table')
   }
 
-  toggleAddExpenseTable() {
-    this.expenseTableStatus = !this.expenseTableStatus;
-  }
+
 
 }
+
+

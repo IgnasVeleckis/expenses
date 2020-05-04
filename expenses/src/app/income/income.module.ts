@@ -5,6 +5,8 @@ import { NewIncomeFormComponent } from './components/new-income-form/new-income-
 import {SharedModule} from '../shared/shared.module';
 import { IncomeListComponent } from './components/income-list/income-list.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {StoreModule} from '@ngrx/store';
+import {IncomeReducer} from './state/incomes.reducer';
 
 
 
@@ -13,7 +15,10 @@ import {ReactiveFormsModule} from '@angular/forms';
   imports: [
     CommonModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forFeature(
+      'incomes', IncomeReducer
+    )
   ]
 })
 export class IncomeModule { }

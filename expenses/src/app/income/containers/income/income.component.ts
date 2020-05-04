@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {IncomeService} from '../../../../core/services/income.service';
 
 
 @Component({
@@ -8,13 +7,9 @@ import {IncomeService} from '../../../../core/services/income.service';
   styleUrls: ['./income.component.scss']
 })
 export class IncomeComponent {
-  incomeTableStatus: boolean;
+  incomeTableStatus = false;
 
-  constructor(
-    private incomeService: IncomeService,
-  ) {
-    this.incomeTableStatus = incomeService.tableStatus;
-  }
+  constructor() {}
 
 
   toggleAddIncomeTable() {

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {AppState} from '../../../../core/models/app-state.model';
-import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {ExpenseListItem} from '../../../../core/models/IExpense.model';
+import {ExpenseItem} from '../../../../core/models/expense-item.model';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../../../core/models/app-state.model';
+import { RemoveExpenseAction} from '../../state/expenses.actions';
 
 @Component({
   selector: 'app-expenses-list',
@@ -11,9 +12,16 @@ import {ExpenseListItem} from '../../../../core/models/IExpense.model';
 })
 export class ExpensesListComponent implements OnInit {
 
-  constructor() {}
+  expenseItems$: Observable<Array<ExpenseItem>>
+
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
+    this.expenseItems$ = this.store.select(store => store.expenses);
+  }
+
+  removeExpense(name: string) {
+    this.store.dispatch(new RemoveExpenseAction(name));
   }
 
 }

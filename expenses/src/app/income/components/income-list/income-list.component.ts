@@ -1,26 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import {IncomeService} from '../../../../core/services/income.service';
-
-export interface IIncome {
-  name: string;
-  generatesPerMonth: number;
-  status: 'passive' | 'active' | 'single';
-}
+import {Observable} from 'rxjs';
+import {IncomeItem} from '../../../../core/models/income-item.model';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../../../core/models/app-state.model';
 
 @Component({
   selector: 'app-income-list',
   templateUrl: './income-list.component.html',
   styleUrls: ['./income-list.component.scss']
 })
-export class IncomeListComponent implements OnInit {
+export class IncomeListComponent implements OnInit{
 
-  incomeSource: IIncome[] = [];
-  constructor(private incomeService: IncomeService) {
-    this.incomeSource = this.incomeService.listOfIncomes;
-  }
+  incomeItems$: Observable<Array<IncomeItem>>;
+
+  constructor(
+    private store: Store<AppState>
+  ) {}
+
 
   ngOnInit() {
-    console.log(this.incomeSource);
+    this.incomeItems$ = this.store.select(store => store.incomes);
   }
+
+
 
 }

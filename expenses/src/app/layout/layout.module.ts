@@ -11,6 +11,9 @@ import {LogsModule} from '../logs/logs.module';
 import {StatisticsModule} from '../statistics/statistics.module';
 import {LandingModule} from '../landing/landing.module';
 import {OverviewModule} from '../overview/overview.module';
+import {StoreModule} from '@ngrx/store';
+import {ExpenseReducer} from '../expenses/state/expenses.reducer';
+import {IncomeReducer} from '../income/state/incomes.reducer';
 
 
 @NgModule({
@@ -24,6 +27,7 @@ import {OverviewModule} from '../overview/overview.module';
     StatisticsModule,
     LandingModule,
     OverviewModule
+
   ]
 
 })

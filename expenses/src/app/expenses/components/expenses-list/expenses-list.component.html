@@ -7,10 +7,19 @@
     <th>Takes per month</th>
   </tr>
 
-  <tr class="rows">
 
+
+  <tr *ngFor="let expense of expenseItems$ | async" class="rows" (click)="removeExpense(expense.id)">
+    <td>
+      {{ expense.name }}
+    </td>
+    <td></td>
+    <td>
+      {{ expense.takesPerMonth }}
+    </td>
   </tr>
-  <tr class="total">
+
+  <tr class="total" >
     <td>
       Total:
     </td>

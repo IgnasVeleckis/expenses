@@ -5,17 +5,17 @@
     <app-expenses-list></app-expenses-list>
 
     <div class="buttons flex justify-center p-t-xl">
-      <app-button text="ADD EXPENSE" (click)="toggleAddExpenseTable()"></app-button>
+      <app-button text="ADD EXPENSE" (click)="toggleTable()"></app-button>
     </div>
 
   </div>
 
 
-  <div class="addExpenseTable shadow-light p-md" [ngClass]="expenseTableStatus? 'show' : 'hide'" >
+  <div class="addExpenseTable shadow-light p-md" *ngIf="tableShow" (greet)="greet()"> <!-- [ngClass]="expenseTableStatus? 'show' : 'hide'"  -->
     <div class="flex justify-flex-end">
-      <app-icon (click)="toggleAddExpenseTable()"></app-icon>
+      <app-icon (click)="toggleTable()"></app-icon>
     </div>
-    <app-new-expense-form></app-new-expense-form>
+    <app-new-expense-form (tableStatus)="toggleTable()"></app-new-expense-form>
   </div>
 
 
