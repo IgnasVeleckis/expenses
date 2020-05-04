@@ -17,7 +17,6 @@ export class ExpensesComponent {
 
   toggleTable() {
     this.tableShow = !this.tableShow;
-    console.log('togglinu table')
   }
 
 

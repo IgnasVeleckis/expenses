@@ -4,6 +4,8 @@ import {Store} from '@ngrx/store';
 import {AppState} from '../../../../core/models/app-state.model';
 import {ExpenseItem} from '../../../../core/models/expense-item.model';
 import {AddExpenseAction, RemoveExpenseAction} from '../../state/expenses.actions';
+import {Observable, Subscription} from 'rxjs';
+import {ExpensesService} from '../../../../core/services/expenses.service';
 
 @Component({
   selector: 'app-new-expense-form',
@@ -13,6 +15,11 @@ import {AddExpenseAction, RemoveExpenseAction} from '../../state/expenses.action
 export class NewExpenseFormComponent {
   @Output() tableStatus = new EventEmitter();
 
+  expenseItems$: Observable<Array<ExpenseItem>>;
+  subscribed: Subscription;
+  totalArray = [];
+  totalNumber: number;
+
   newExpensesItem: ExpenseItem = {
     id: '',
     name: '',
@@ -21,7 +28,7 @@ export class NewExpenseFormComponent {
 
   constructor(
     private fb: FormBuilder,
-    private store: Store<AppState>
+    private store: Store<AppState>,
   ) {}
   addExpenseForm = this.fb.group({
     name: ['', Validators.required],
@@ -31,7 +38,16 @@ export class NewExpenseFormComponent {
   onSubmit() {
     this.addNewExpense();
     this.tableStatus.emit();
+    this.totalArray = [];
+    this.totalNumber = 0;
+    this.subscribed = this.expenseItems$.subscribe(data => data.map(a => this.totalArray.push(a.takesPerMonth)))
+    if (this.totalArray.length !== 0) {
+      this.totalNumber = this.totalArray.reduce((a, b) => {
+        return a + b;
+      });
+    }
   }
+
 
   addNewExpense() {
     this.newExpensesItem.id = this.generateId();
