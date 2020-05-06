@@ -4,6 +4,7 @@ import {ExpenseItem} from '../../../../core/models/expense-item.model';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../../../core/models/app-state.model';
 import { RemoveExpenseAction} from '../../state/expenses.actions';
+import {ExpensesService} from '../../../../core/services/expenses.service';
 
 @Component({
   selector: 'app-expenses-list',
@@ -19,13 +20,26 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<AppState>,
+    private expenseService: ExpensesService
   ) {}
 
   ngOnInit() {
     this.expenseItems$ = this.store.select(store => store.expenses);
+    this.calcTotal();
+
+    // ________________________________________________________________
+
+    this.expenseService.customObservable.subscribe((res) => {
+      this.totalNumber = 0;
+      this.totalArray = [];
+      this.calcTotal();
+    });
+  }
+
+  calcTotal() {
     this.subscribed = this.expenseItems$.subscribe(
       data => data.map(a => this.totalArray.push(a.takesPerMonth) )
-    )
+    );
     this.totalNumber = this.totalArray.reduce((a, b) => {
       return a + b;
     });

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ExpensesService} from '../../../../core/services/expenses.service';
 
 @Component({

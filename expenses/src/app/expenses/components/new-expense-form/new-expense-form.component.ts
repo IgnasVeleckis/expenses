@@ -5,13 +5,14 @@ import {AppState} from '../../../../core/models/app-state.model';
 import {ExpenseItem} from '../../../../core/models/expense-item.model';
 import {AddExpenseAction} from '../../state/expenses.actions';
 import {Observable, Subscription} from 'rxjs';
+import {ExpensesService} from '../../../../core/services/expenses.service';
 
 @Component({
   selector: 'app-new-expense-form',
   templateUrl: './new-expense-form.component.html',
   styleUrls: ['./new-expense-form.component.scss']
 })
-export class NewExpenseFormComponent implements OnDestroy{
+export class NewExpenseFormComponent implements OnDestroy {
   @Output() tableStatus = new EventEmitter<string>();
 
   expenseItems$: Observable<Array<ExpenseItem>>;
@@ -28,6 +29,7 @@ export class NewExpenseFormComponent implements OnDestroy{
   constructor(
     private fb: FormBuilder,
     private store: Store<AppState>,
+    private expenseService: ExpensesService
   ) {}
   addExpenseForm = this.fb.group({
     name: ['', Validators.required],
@@ -58,6 +60,11 @@ export class NewExpenseFormComponent implements OnDestroy{
     this.newExpensesItem.id = this.generateId();
     this.newExpensesItem.name = this.addExpenseForm.value.name;
     this.newExpensesItem.takesPerMonth = this.addExpenseForm.value.takesPerMonth;
+
+    this.expenseService.totalExpenses(this.addExpenseForm.value.takesPerMonth);
+    // this.expenseService.totalExpenses(this.addExpenseForm.value.takesPerMonth); // cia issiunciu total
+
+
     this.store.dispatch(new AddExpenseAction(this.newExpensesItem));
     this.newExpensesItem = {
       id: '',
