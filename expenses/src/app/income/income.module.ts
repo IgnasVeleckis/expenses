@@ -12,6 +12,9 @@ import {IncomeReducer} from './state/incomes.reducer';
 
 @NgModule({
   declarations: [IncomeComponent, NewIncomeFormComponent, IncomeListComponent],
+  exports: [
+    IncomeComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,

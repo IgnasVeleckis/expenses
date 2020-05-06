@@ -1,0 +1,14 @@
+<div class="title text-lg m-b-md">
+  Finance logs
+</div>
+<div class="navigation flex">
+  <div class="choice p-md" (click)="changeLogs('income')" [ngClass]="activeIncome? 'active' : 'not'">
+    Income log
+  </div>
+  <div class="choice p-md" (click)="changeLogs('expense')" [ngClass]="activeExpense? 'active' : 'not'">
+    Expense log
+  </div>
+  <div class="choice p-md" (click)="changeLogs('combined')" [ngClass]="activeCombined? 'active' : 'not'">
+    Combined
+  </div>
+</div>

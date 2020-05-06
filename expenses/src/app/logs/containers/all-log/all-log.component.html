@@ -1,1 +1,8 @@
-<p>all-log works!</p>
+<div class="p-lg">
+  <app-log-navigation (loadedLogs)="change($event)"></app-log-navigation>
+</div>
+<div class="p-l-lg">
+  <app-combined-log *ngIf="logStatus === 'combined'"></app-combined-log>
+  <app-expense-log *ngIf="logStatus === 'expense'"></app-expense-log>
+  <app-income-log *ngIf="logStatus === 'income'"></app-income-log>
+</div>
