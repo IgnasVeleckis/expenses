@@ -1,0 +1,23 @@
+<form [formGroup]="registrationForm" (ngSubmit)="alert()" class="flex direction-column">
+  <div class="p-t-md flex direction-column">
+    <label for="username">Username</label>
+    <input formControlName="username" id="username" type="text" placeholder="username">
+  </div>
+
+
+
+  <div class="p-t-md flex direction-column">
+    <label for="password">Password</label>
+    <input formControlName="password" id="password" type="password" placeholder="password">
+  </div>
+
+
+  <div class="p-t-md flex direction-column">
+    <label for="repeat">Repeat</label>
+    <input formControlName="repeat" id="repeat" type="password" placeholder="repeat password">
+  </div>
+
+  <div class="button p-t-md">
+    <button type="submit" [disabled]="!registrationForm.valid">SUBMIT</button>
+  </div>
+</form>

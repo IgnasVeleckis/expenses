@@ -6,15 +6,18 @@ import {Subject} from 'rxjs';
 })
 export class ExpensesService {
 
+// viskas form tutorial
 
-  private totalNumber = new Subject<any>();
-  customObservable = this.totalNumber.asObservable();
 
-  constructor() { }
+  // Observable string sources
+  private componentMethodCallSource = new Subject<any>();
 
-  totalExpenses(val: any) {
-    this.totalNumber.next(val);
-    console.log(this.totalNumber);
+  // Observable string streams
+  componentMethodCalled$ = this.componentMethodCallSource.asObservable();
+
+  // Service message commands
+  callComponentMethod() {
+    this.componentMethodCallSource.next();
   }
 
 

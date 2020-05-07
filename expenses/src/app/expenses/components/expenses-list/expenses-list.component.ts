@@ -26,14 +26,6 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.expenseItems$ = this.store.select(store => store.expenses);
     this.calcTotal();
-
-    // ________________________________________________________________
-
-    this.expenseService.customObservable.subscribe((res) => {
-      this.totalNumber = 0;
-      this.totalArray = [];
-      this.calcTotal();
-    });
   }
 
   calcTotal() {
@@ -62,6 +54,13 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
       });
     }
 
+  }
+
+
+  // from tutorial
+
+  callMethod = () => {
+    this.expenseService.callComponentMethod();
   }
 
 }

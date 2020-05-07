@@ -1,0 +1,18 @@
+<form [formGroup]="loginForm" (ngSubmit)="alert()" class="flex direction-column">
+  <div class="p-t-md flex direction-column">
+    <label for="username">Username</label>
+    <input formControlName="username" id="username" type="text">
+  </div>
+
+
+
+  <div class="p-t-md flex direction-column">
+    <label for="password">Password</label>
+    <input formControlName="password" id="password" type="password">
+  </div>
+
+  <div class="button p-t-md">
+    <button type="submit" [disabled]="!loginForm.valid">SUBMIT</button>
+
+  </div>
+  </form>

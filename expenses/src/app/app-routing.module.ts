@@ -3,16 +3,26 @@ import { Routes, RouterModule } from '@angular/router';
 import { LandingComponent } from './landing/containers/landing/landing.component';
 import { MainComponent } from './layout/containers/main/main.component';
 import {OverviewComponent} from './overview/containers/overview/overview.component';
-import {StatisticsComponent} from "./statistics/containers/statistics/statistics.component";
-import {IncomeComponent} from "./income/containers/income/income.component";
-import {ExpensesComponent} from "./expenses/containers/expenses/expenses.component";
-import {AllLogComponent} from "./logs/containers/all-log/all-log.component";
+import {StatisticsComponent} from './statistics/containers/statistics/statistics.component';
+import {IncomeComponent} from './income/containers/income/income.component';
+import {ExpensesComponent} from './expenses/containers/expenses/expenses.component';
+import {AllLogComponent} from './logs/containers/all-log/all-log.component';
+import {LoginComponent} from './auth/containers/login/login.component';
+import {RegistrationComponent} from './auth/containers/registration/registration.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: LandingComponent
+  },
+  {
+    path: 'auth/login',
+    component: LoginComponent
+  },
+  {
+    path: 'auth/registration',
+    component: RegistrationComponent
   },
   {
     path: 'budget',

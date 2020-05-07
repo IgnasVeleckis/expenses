@@ -30,7 +30,17 @@ export class NewExpenseFormComponent implements OnDestroy {
     private fb: FormBuilder,
     private store: Store<AppState>,
     private expenseService: ExpensesService
-  ) {}
+  ) {
+    // from tutorial
+    this.expenseService.componentMethodCalled$.
+      subscribe(
+      () => {
+        alert('method called')
+      }
+    )
+  }
+
+
   addExpenseForm = this.fb.group({
     name: ['', Validators.required],
     takesPerMonth: ['', Validators.required]
@@ -60,11 +70,6 @@ export class NewExpenseFormComponent implements OnDestroy {
     this.newExpensesItem.id = this.generateId();
     this.newExpensesItem.name = this.addExpenseForm.value.name;
     this.newExpensesItem.takesPerMonth = this.addExpenseForm.value.takesPerMonth;
-
-    this.expenseService.totalExpenses(this.addExpenseForm.value.takesPerMonth);
-    // this.expenseService.totalExpenses(this.addExpenseForm.value.takesPerMonth); // cia issiunciu total
-
-
     this.store.dispatch(new AddExpenseAction(this.newExpensesItem));
     this.newExpensesItem = {
       id: '',
@@ -72,6 +77,8 @@ export class NewExpenseFormComponent implements OnDestroy {
       takesPerMonth: null
     };
   }
+
+
 
   generateId() {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);

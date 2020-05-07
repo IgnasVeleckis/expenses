@@ -7,8 +7,6 @@ import { LayoutModule } from './layout/layout.module';
 
 import { StoreModule } from '@ngrx/store';
 
-import {ExpenseReducer} from './expenses/state/expenses.reducer';
-import {IncomeReducer} from './income/state/incomes.reducer';
 import {reducers} from './reducers';
 
 
