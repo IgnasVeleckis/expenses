@@ -1,34 +1,36 @@
 @import '../../../../theme/variables';
 
-.header{
+/* .header{
   background-color: $primary;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 999;
-}
-.middle{
+} */
 
-  .sidenav{
-    background-color: $primary;
-    height: 100%;
-    width: 16rem;
-    position: fixed;
-    z-index: 1;
-    top: 50px;
-    left: 0;
-    z-index: 5;
-  }
-  .content{
-
-    min-height: 100%;
-    background-color: $secondary;
-    margin-left: 16rem;
-    margin-top: 50px;
-    z-index: 10;
-  }
+.middle {
+    .sidenav {
+        background-color: $primary;
+        height: 100%;
+        width: 16rem;
+        position: fixed;
+        z-index: 1;
+        //top: 50px;
+        top: 0;
+        left: 0;
+        z-index: 5;
+    }
+    .content {
+        min-height: 100%;
+        background-color: $secondary;
+        margin-left: 16rem;
+        // margin-top: 50px;
+        z-index: 10;
+    }
 }
+
+
 /*.footer{
   position: fixed;
   bottom: 0;

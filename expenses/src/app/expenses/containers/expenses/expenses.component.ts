@@ -10,6 +10,8 @@ export class ExpensesComponent {
 
   tableShow = false;
 
+  expenseNavStatus: 'monthly' | 'single';
+
   constructor(
     private expensesService: ExpensesService,
   ) {}
@@ -17,6 +19,10 @@ export class ExpensesComponent {
 
   toggleTable() {
     this.tableShow = !this.tableShow;
+  }
+
+  change(value) {
+    this.expenseNavStatus = value;
   }
 
 

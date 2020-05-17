@@ -1,0 +1,9 @@
+<div class="navigation flex">
+    <div class="choice p-md" (click)="changeExpenses('monthly')" [ngClass]="activeMonthly? 'active' : 'not'">
+        Monthly
+    </div>
+    <div class="choice p-md" (click)="changeExpenses('single')" [ngClass]="activeSingle? 'active' : 'not'">
+        Single
+    </div>
+
+</div>

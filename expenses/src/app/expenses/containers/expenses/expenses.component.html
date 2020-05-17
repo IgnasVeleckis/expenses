@@ -1,22 +1,31 @@
 <div class="container p-md">
 
-  <div class="income-source">
+    <div class="income-source">
 
-    <app-expenses-list></app-expenses-list>
 
-    <div class="buttons flex justify-center p-t-xl">
-      <app-button text="ADD EXPENSE" (click)="toggleTable()"></app-button>
+        <div class="text-xl m-b-lg">
+            My expense list
+        </div>
+
+        <app-list-nav (loadedExpense)="change($event)"></app-list-nav>
+
+        <app-expenses-monthly *ngIf="expenseNavStatus == 'monthly'"></app-expenses-monthly>
+
+        <app-expenses-single *ngIf="expenseNavStatus == 'single'"></app-expenses-single>
+
+        <div class="buttons flex justify-center p-t-xl">
+            <app-button text="ADD EXPENSE" (click)="toggleTable()"></app-button>
+        </div>
+
     </div>
 
-  </div>
 
-
-  <div class="addExpenseTable shadow-light p-md" *ngIf="tableShow"> <!-- [ngClass]="expenseTableStatus? 'show' : 'hide'"  -->
-    <div class="flex justify-flex-end">
-      <app-icon (click)="toggleTable()"></app-icon>
+    <div class="addExpenseTable shadow-light p-md" *ngIf="tableShow">
+        <div class="flex justify-flex-end">
+            <app-icon (click)="toggleTable()"></app-icon>
+        </div>
+        <app-new-expense-form (tableStatus)="toggleTable()"></app-new-expense-form>
     </div>
-    <app-new-expense-form (tableStatus)="toggleTable()"></app-new-expense-form>
-  </div>
 
 
 </div>

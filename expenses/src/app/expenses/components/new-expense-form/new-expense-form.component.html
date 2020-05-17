@@ -1,26 +1,58 @@
 <div class="container flex direction-column align-center">
-  <div class="title text-xl p-t-md">
-    Add new expense
-  </div>
-  <form [formGroup]="addExpenseForm" class="p-t-lg flex direction-column" (ngSubmit)="onSubmit()">
-
-    <label>
-      New expense name:
-      <br>
-      <input type="text" formControlName="name">
-    </label>
-
-
-    <label>
-      Generates per month:
-      <br>
-      <input type="number" formControlName="takesPerMonth">
-    </label>
-
-    <div class="flex justify-center">
-      <app-button text="ADD" type="submit"></app-button>
+    <div class="title text-xl p-t-md">
+        Add new expense
     </div>
-  </form>
+    <div class="expenseForm p-t-md">
+        <label for="check-single">
+        <input type="checkbox" id="check-single">
+        single
+      </label>
+
+        <label for="check-monthly">
+        <input type="checkbox" id="check-monthly">
+        monthly
+      </label>
+    </div>
+    <form [formGroup]="expenseForm" class="flex direction-column" (ngSubmit)="onSubmit()">
+
+
+        <div class="p-t-md flex direction-column">
+            <label for="expenseName">
+        New expense name:
+      </label>
+            <input type="text" formControlName="expenseName" id="expenseName">
+        </div>
+
+        <div class="p-t-md flex direction-column">
+            <label for="expenseTakes">
+        Expense takes per month:
+      </label>
+            <input type="number" formControlName="expenseTakes" id="expenseTakes">
+            <!--<div *ngIf="expenseForm.invalid && (expenseForm.expenseTakes.dirty || expenseForm.expenseTakes.touched)">*This field is required</div>-->
+        </div>
+
+        <div class="p-t-md flex direction-column">
+            <label for="dateYear">
+        New expense date:
+      </label>
+            <input type="text" formControlName="dateYear" id="dateYear" placeholder="{{ expenseItemDate | date:'yyyy.MM.dd' }}">
+        </div>
+
+        <!--<div class="p-t-md flex direction-column">
+      <label for="dateHrs">
+        New expense name:
+      </label>
+      <input type="text" formControlName="dateHrs" id="dateHrs" placeholder="{{ expenseItemDate | date:'HH:mm' }}">
+    </div>-->
+
+
+
+        <div class="flex justify-center p-t-md">
+            <button class="" type="submit" [disabled]="!expenseForm.valid">ADD</button>
+            <!--
+       <app-button text="ADD" type="submit" [disabled]="!expenseForm.valid"></app-button>
+       -->
+        </div>
+    </form>
 
 </div>
-

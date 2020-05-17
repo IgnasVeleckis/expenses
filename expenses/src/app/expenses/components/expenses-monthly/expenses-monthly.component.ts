@@ -7,11 +7,11 @@ import { RemoveExpenseAction} from '../../state/expenses.actions';
 import {ExpensesService} from '../../../../core/services/expenses.service';
 
 @Component({
-  selector: 'app-expenses-list',
-  templateUrl: './expenses-list.component.html',
-  styleUrls: ['./expenses-list.component.scss']
+  selector: 'app-expenses-monthly',
+  templateUrl: './expenses-monthly.component.html',
+  styleUrls: ['./expenses-monthly.component.scss']
 })
-export class ExpensesListComponent implements OnInit, OnDestroy {
+export class ExpensesMonthlyComponent implements OnInit, OnDestroy {
 
   expenseItems$: Observable<Array<ExpenseItem>>
   totalArray = [];
@@ -21,7 +21,17 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store<AppState>,
     private expenseService: ExpensesService
-  ) {}
+  ) {
+    // from tutorial
+    this.expenseService.componentMethodCalled$.
+    subscribe(
+      () => {
+        this.totalArray = [];
+        this.totalNumber = 0;
+        this.calcTotal();
+      }
+    )
+  }
 
   ngOnInit() {
     this.expenseItems$ = this.store.select(store => store.expenses);
@@ -32,9 +42,15 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
     this.subscribed = this.expenseItems$.subscribe(
       data => data.map(a => this.totalArray.push(a.takesPerMonth) )
     );
-    this.totalNumber = this.totalArray.reduce((a, b) => {
-      return a + b;
-    });
+
+    if (this.totalArray.length > 0) {
+      this.totalNumber = this.totalArray.reduce((a, b) => {
+        return a + b;
+      });
+    }
+
+
+
   }
 
   ngOnDestroy() {
@@ -57,10 +73,6 @@ export class ExpensesListComponent implements OnInit, OnDestroy {
   }
 
 
-  // from tutorial
 
-  callMethod = () => {
-    this.expenseService.callComponentMethod();
-  }
 
 }
