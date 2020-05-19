@@ -22,7 +22,6 @@ export class ExpensesMonthlyComponent implements OnInit, OnDestroy {
     private store: Store<AppState>,
     private expenseService: ExpensesService
   ) {
-    // from tutorial
     this.expenseService.componentMethodCalled$.
     subscribe(
       () => {
@@ -34,13 +33,22 @@ export class ExpensesMonthlyComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.expenseItems$ = this.store.select(store => store.expenses);
+    this.expenseItems$ = this.store.select(store => store.expenses.filter(a =>{
+      return a.type === 'monthly'
+
+    }
+      ));
+
     this.calcTotal();
+
+    
   }
 
   calcTotal() {
     this.subscribed = this.expenseItems$.subscribe(
-      data => data.map(a => this.totalArray.push(a.takesPerMonth) )
+      data => data.map(a =>
+        this.totalArray.push(a.takesPerMonth) 
+        )
     );
 
     if (this.totalArray.length > 0) {
@@ -71,8 +79,5 @@ export class ExpensesMonthlyComponent implements OnInit, OnDestroy {
     }
 
   }
-
-
-
 
 }

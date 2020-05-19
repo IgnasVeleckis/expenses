@@ -22,12 +22,13 @@ export class NewExpenseFormComponent implements OnDestroy, OnInit {
   totalArray = [];
   totalNumber: number;
   expenseForm: any;
-
+  expenseType: 'single' | 'monthly';
   expenseItemDate: any;
 
   newExpensesItem: ExpenseItem = {
     id: '',
     name: '',
+    type: null,
     dateAdded: '',
     takesPerMonth: null
   };
@@ -38,14 +39,16 @@ export class NewExpenseFormComponent implements OnDestroy, OnInit {
     private expenseService: ExpensesService,
   ) {
     this.expenseForm = this.fb.group({
+      
+      expensesType: ['', Validators.required],
       expenseName: ['', Validators.required],
       expenseTakes: ['', Validators.required],
       dateYear: [''],
-      // dateHrs: ['']
     });
   }
 
   onSubmit() {
+    console.log(this.expenseForm.value)
     this.addNewExpense();
     this.callMethod();
     this.tableStatus.emit('1');
@@ -57,6 +60,7 @@ export class NewExpenseFormComponent implements OnDestroy, OnInit {
         return a + b;
       });
     }
+    
   }
 
   ngOnInit() { // generates current date for forms placeholders
@@ -72,29 +76,24 @@ export class NewExpenseFormComponent implements OnDestroy, OnInit {
   addNewExpense() {
     this.newExpensesItem.id = this.generateId();
     this.newExpensesItem.name = this.expenseForm.value.expenseName;
-
-
-
+   // checks if date is given when submiting a form if not gets current date (now input is disabled so uses current date)
     if (this.expenseForm.value.dateYear === '') {
-      console.log('date is placeholder');
       this.newExpensesItem.dateAdded = this.getDate();
     } else if (this.expenseForm.value.dateYear !== '') {
-      console.log('yra date');
       this.newExpensesItem.dateAdded = this.expenseForm.value.dateYear;
     }
-
-
+    this.newExpensesItem.type = this.expenseForm.value.expensesType
+    this.expenseType = this.expenseForm.expenseType
     this.newExpensesItem.takesPerMonth = this.expenseForm.value.expenseTakes;
     this.store.dispatch(new AddExpenseAction(this.newExpensesItem));
     this.newExpensesItem = {
       id: '',
       name: '',
+      type: null,
       dateAdded: '',
       takesPerMonth: null
     };
   }
-
-
 
   generateId() { // generates random id for our new item
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);

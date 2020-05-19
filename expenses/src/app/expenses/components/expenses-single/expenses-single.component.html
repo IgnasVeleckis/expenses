@@ -17,24 +17,24 @@
 
 
     <div class="row flex justify-between p-y-md" *ngFor="let expense of expenseItems$ | async">
-        <div class="cel">
-            <div>
-                {{ expense.name }}
-            </div>
+        <div class="cel name flex align-center">
+
+            {{ expense.name }}
+
         </div>
-        <div class="cel">
-            <div>
-                {{ expense.takesPerMonth }}
-            </div>
+        <div class="cel flex align-center">
+
+            {{ expense.takesPerMonth }}
+
         </div>
-        <div class="cel">
-            <div>
-                {{expense.dateAdded | date:'yyyy-MM-dd'}}
-            </div>
+        <div class="cel flex align-center">
+
+            {{expense.dateAdded | date:'yyyy-MM-dd'}}
+
         </div>
-        <div class="cel buttons flex justify-around">
+        <div class="cel buttons flex align-center">
             <!--<button>i</button>-->
-            <button (click)="removeExpense(expense.id)">x</button>
+            <button class="deleteList text-md" (click)="removeExpense(expense.id)">x</button>
         </div>
     </div>
 

@@ -34,7 +34,9 @@ export class ExpensesSingleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.expenseItems$ = this.store.select(store => store.expenses);
+    this.expenseItems$ = this.store.select(store => store.expenses.filter(a => {
+      return a.type === 'single'
+    }));
     this.calcTotal();
   }
 
@@ -42,15 +44,11 @@ export class ExpensesSingleComponent implements OnInit {
     this.subscribed = this.expenseItems$.subscribe(
       data => data.map(a => this.totalArray.push(a.takesPerMonth) )
     );
-
     if (this.totalArray.length > 0) {
       this.totalNumber = this.totalArray.reduce((a, b) => {
         return a + b;
       });
     }
-
-
-
   }
 
   ngOnDestroy() {

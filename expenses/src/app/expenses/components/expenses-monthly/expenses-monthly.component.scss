@@ -1,29 +1,43 @@
 @import "../../../../theme/variables";
-
-.table{
-  .row{
-    border-bottom: 1px solid rgba($primary, 0.65);
-    border-top: 1px solid rgba($primary, 0.65);
-    &.header{
-      border-top: none;
-    }
-    .cel{
-      width: 30%;
-      &.buttons{
-        width: 10%;
-        button{
-          width: 40%;
-          &:hover{
-            cursor: pointer;
-          }
+.table {
+    .row {
+        border-bottom: 1px solid rgba($primary, 0.65);
+        border-top: 1px solid rgba($primary, 0.65);
+        &.header {
+            border-top: none;
         }
-      }
-        &.total-name{
-          width: 20%;
+        .deleteList {
+            //border: 2px solid $primary;
+            border: none;
+            color: $primary;
+            background-color: transparent;
+            font-weight: 700;
+            border-radius: 50%;
+            transition: .3s;
+            &:hover {
+                color: red;
+            }
         }
-      &.total-number{
-        width: 80%;
-      }
+        .cel {
+            width: 30%;
+            &.name {
+                font-weight: 700;
+            }
+            &.buttons {
+                width: 10%;
+                button {
+                    width: 40%;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+            &.total-name {
+                width: 20%;
+            }
+            &.total-number {
+                width: 80%;
+            }
+        }
     }
-  }
 }
