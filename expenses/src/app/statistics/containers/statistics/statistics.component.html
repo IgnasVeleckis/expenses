@@ -1,3 +1,4 @@
-<app-expense-chart></app-expense-chart>
-<app-income-chart></app-income-chart>
-<app-highest-expense></app-highest-expense>
+<app-navigation (loadedStatistics)="change($event)"></app-navigation>
+
+<app-expense-chart *ngIf="statisticsNavStatus == 'expenses'"></app-expense-chart>
+<app-income-chart *ngIf="statisticsNavStatus == 'incomes'"></app-income-chart>

@@ -10,12 +10,13 @@ import { RadarChartComponent } from './charts/radar-chart/radar-chart.component'
 import { DoughnutChartComponent } from './charts/doughnut-chart/doughnut-chart.component';
 import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
 import { LineChartComponent } from './charts/line-chart/line-chart.component';
+import { IconButtonComponent } from './components/icon-button/icon-button.component';
 
 
 const COMPONENTS = [ButtonComponent, IconComponent, InputComponent, PieChartComponent]
 
 @NgModule({
-  declarations: [...COMPONENTS, RadarChartComponent, DoughnutChartComponent, BarChartComponent, LineChartComponent],
+  declarations: [...COMPONENTS, RadarChartComponent, DoughnutChartComponent, BarChartComponent, LineChartComponent, IconButtonComponent],
   imports: [
     CommonModule,
     ChartsModule

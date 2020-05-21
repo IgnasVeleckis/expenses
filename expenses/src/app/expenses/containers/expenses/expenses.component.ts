@@ -12,10 +12,7 @@ export class ExpensesComponent {
 
   expenseNavStatus: 'monthly' | 'single';
 
-  constructor(
-    private expensesService: ExpensesService,
-  ) {}
-
+  constructor() {}
 
   toggleTable() {
     this.tableShow = !this.tableShow;

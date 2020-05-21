@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./statistics.component.scss']
 })
 export class StatisticsComponent implements OnInit {
-
+  statisticsNavStatus: 'expenses' | 'incomes';
   constructor() { }
 
   ngOnInit() {
+  }
+
+  change(value) {
+    this.statisticsNavStatus = value;
   }
 
 }

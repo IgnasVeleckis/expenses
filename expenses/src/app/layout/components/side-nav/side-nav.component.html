@@ -1,17 +1,17 @@
 <div class="sidenav flex direction-column align-center">
-  <div class="link flex justify-center align-center" routerLink="expenses" [ngClass]="active1 ? 'active' : 'danger'" (click)="activateRouterLink1()">
-    Expenses
-  </div>
-  <div class="link flex justify-center align-center" routerLink="income" [ngClass]="active2 ? 'active' : 'danger'" (click)="activateRouterLink2()">
-    Income
-  </div>
-  <div class="link  flex justify-center align-center" routerLink="statistics" [ngClass]="active3 ? 'active' : 'danger'" (click)="activateRouterLink3()">
-    Statistics
-  </div>
-  <div class="link  flex justify-center align-center" routerLink="overview" [ngClass]="active4 ? 'active' : 'danger'" (click)="activateRouterLink4()">
-    Overview
-  </div>
-  <div class="link  flex justify-center align-center" routerLink="logs" [ngClass]="active5 ? 'active' : 'danger'" (click)="activateRouterLink5()">
-    Logs
-  </div>
+    <div class="link flex justify-center align-center" routerLink="expenses" routerLinkActive="active">
+        Expenses
+    </div>
+    <div class="link flex justify-center align-center" routerLink="income" routerLinkActive="active">
+        Income
+    </div>
+    <div class="link  flex justify-center align-center" routerLink="statistics" routerLinkActive="active">
+        Statistics
+    </div>
+    <div class="link  flex justify-center align-center" routerLink="overview" routerLinkActive="active">
+        Overview
+    </div>
+    <div class="link  flex justify-center align-center" routerLink="logs" routerLinkActive="active">
+        Logs
+    </div>
 </div>

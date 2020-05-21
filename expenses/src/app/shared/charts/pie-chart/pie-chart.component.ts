@@ -9,13 +9,15 @@ import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsToolt
 })
 export class PieChartComponent implements OnInit {
   @Input() title: string;
+  @Input() statNames: [];
+  @Input() statData: [];
 
   public pieChartOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: false
   };
-  public pieChartLabels: Label[] = ['groceries', 'Flat', 'Car', 'entertainment'];
-  public pieChartData: SingleDataSet = [100, 50, 20, 15];
+  public pieChartLabels: Label[];
+  public pieChartData: SingleDataSet; 
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = false;
   public pieChartPlugins = [];
@@ -25,6 +27,8 @@ export class PieChartComponent implements OnInit {
     monkeyPatchChartJsLegend();
   }
   ngOnInit() {
+    this.pieChartLabels = this.statNames;
+    this.pieChartData = this.statData
   }
 
 }

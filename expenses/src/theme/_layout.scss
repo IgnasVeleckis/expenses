@@ -221,8 +221,8 @@
         &-evenly {
             justify-content: space-evenly;
         }
-        &-flex-end{
-          justify-content: flex-end;
+        &-flex-end {
+            justify-content: flex-end;
         }
     }
     &.align {
@@ -246,9 +246,9 @@
     &-50 {
         height: 50vh;
     }
-  &-80 {
-    height: 80vh;
-  }
+    &-80 {
+        height: 80vh;
+    }
     &-90 {
         height: 90vh;
     }
@@ -258,18 +258,18 @@
 }
 
 .page-width {
-  &-10 {
-    width: 10%;
-  }
-  &-20 {
-    width: 20%;
-  }
-  &-50 {
+    &-10 {
+        width: 10%;
+    }
+    &-20 {
+        width: 20%;
+    }
+    &-50 {
         width: 50%;
     }
-  &-80 {
-    width: 80%;
-  }
+    &-80 {
+        width: 80%;
+    }
     &-90 {
         width: 90%;
     }
@@ -278,9 +278,20 @@
     }
 }
 
-
 // BOX SHADOW
+.shadow-light {
+    box-shadow: $box-shadow;
+}
 
-.shadow-light{
-  box-shadow: $box-shadow;
+// color background
+.bg {
+    &.-primary {
+        background-color: $primary;
+    }
+    &.-secondary {
+        background-color: $secondary;
+    }
+    &.-accent {
+        background-color: $accent;
+    }
 }

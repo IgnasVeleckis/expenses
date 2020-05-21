@@ -1,0 +1,8 @@
+<div class="navigation flex">
+    <div class="choice p-md" (click)="changeExpenses('expenses')" [ngClass]="activeExpenses? 'active' : 'not'">
+        expenses
+    </div>
+    <div class="choice p-md" (click)="changeExpenses('incomes')" [ngClass]="activeIncomes? 'active' : 'not'">
+        incomes
+    </div>
+</div>

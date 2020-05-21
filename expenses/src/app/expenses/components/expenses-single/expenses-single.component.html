@@ -1,6 +1,4 @@
-<div class="table" *ngIf="totalNumber !== 0">
-
-
+<div class="table" *ngIf="totalNumber > 0">
     <div class="row header text-md flex justify-between p-y-md">
         <div class="cel">
             Name
@@ -14,27 +12,18 @@
         <div class="cel buttons">
         </div>
     </div>
-
-
     <div class="row flex justify-between p-y-md" *ngFor="let expense of expenseItems$ | async">
         <div class="cel name flex align-center">
-
             {{ expense.name }}
-
         </div>
         <div class="cel flex align-center">
-
             {{ expense.takesPerMonth }}
-
         </div>
         <div class="cel flex align-center">
-
             {{expense.dateAdded | date:'yyyy-MM-dd'}}
-
         </div>
         <div class="cel buttons flex align-center">
-            <!--<button>i</button>-->
-            <button class="deleteList text-md" (click)="removeExpense(expense.id)">x</button>
+            <app-button text="X" (click)="removeExpense(expense.id)"></app-button>
         </div>
     </div>
 
@@ -45,10 +34,10 @@
         </div>
         <div class="cel total-number flex justify-center text-md">
             <span class="p-r-sm">
-        Takes
+        
       </span> {{ totalNumber }}
             <span>
-        $ per month
+        $ this month
       </span>
 
         </div>
@@ -57,6 +46,6 @@
 </div>
 
 
-<div *ngIf="totalNumber == 0" class="text-xl flex justify-center p-t-lg">
+<div *ngIf="totalNumber == 0 || totalNumber == undefined" class="text-xl flex justify-center p-t-lg">
     You have no expenses
 </div>

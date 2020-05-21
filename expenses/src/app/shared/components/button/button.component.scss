@@ -1,3 +1,28 @@
-button{
-  width: 130px;
+@import '../../../../theme/variables';
+button {
+    border: none;
+    color: $primary;
+    background-color: transparent;
+    font-weight: 700;
+    border-radius: 50%;
+    transition: .3s;
+    &:hover {
+        color: red;
+        cursor: pointer;
+    }
+    &:focus {
+        outline: none;
+    }
+    &.theme- {
+        &.primary {
+            color: $primary;
+        }
+        &.secondary {
+            color: $secondary;
+            background-color: $primary;
+        }
+        &.accent {
+            color: $accent;
+        }
+    }
 }

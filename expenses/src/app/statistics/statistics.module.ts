@@ -7,10 +7,11 @@ import { HighestExpenseComponent } from './components/highest-expense/highest-ex
 
 import { ChartsModule } from 'ng2-charts';
 import {SharedModule} from '../shared/shared.module';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 
 @NgModule({
-  declarations: [StatisticsComponent, ExpenseChartComponent, IncomeChartComponent, HighestExpenseComponent],
+  declarations: [StatisticsComponent, ExpenseChartComponent, IncomeChartComponent, HighestExpenseComponent, NavigationComponent],
   imports: [
     CommonModule,
     SharedModule

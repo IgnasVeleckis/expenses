@@ -35,12 +35,10 @@ export class ExpensesMonthlyComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.expenseItems$ = this.store.select(store => store.expenses.filter(a =>{
       return a.type === 'monthly'
-
     }
       ));
 
     this.calcTotal();
-
     
   }
 
@@ -76,6 +74,8 @@ export class ExpensesMonthlyComponent implements OnInit, OnDestroy {
       this.totalNumber = this.totalArray.reduce((a, b) => {
         return a + b;
       });
+    } else if(this.totalArray.length == 0) {
+      this.totalNumber = 0;
     }
 
   }
