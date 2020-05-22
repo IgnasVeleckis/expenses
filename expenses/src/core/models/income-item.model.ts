@@ -1,6 +1,6 @@
 export interface IncomeItem {
   id: string;
   name: string;
-  status: 'active' | 'passive' | 'single';
+  status: 'monthly' | 'single';
   generatesPerMonth: number;
 }

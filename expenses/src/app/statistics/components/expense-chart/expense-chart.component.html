@@ -1,2 +1,16 @@
-<app-pie-chart title="My expenses" [statNames]="expenseNames" [statData]="expenseAmounts">
-</app-pie-chart>
+<div class="flex">
+    <div class="expensesMonthly">
+        <app-pie-chart title="This months monthly expenses" [statNames]="expenseNamesMon" [statData]="expenseAmountsMon">
+        </app-pie-chart>
+
+
+        <app-pie-chart title="This months monthly expenses" [statNames]="expenseNamesMon" [statData]="expenseAmountsMon">
+        </app-pie-chart>
+        <!-- <app-bar-chart></app-bar-chart> -->
+    </div>
+    <div class="expensesSingle">
+        <app-pie-chart title="This months single expenses" [statNames]="expenseNamesSin" [statData]="expenseAmountsSin">
+        </app-pie-chart>
+
+    </div>
+</div>

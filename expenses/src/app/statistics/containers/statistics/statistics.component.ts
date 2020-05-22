@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./statistics.component.scss']
 })
 export class StatisticsComponent implements OnInit {
-  statisticsNavStatus: 'expenses' | 'incomes';
+  statisticsNavStatus: 'yearStat' | 'monthStat' | 'dayStat';
   constructor() { }
 
   ngOnInit() {

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HighestExpenseComponent } from './highest-expense.component';
+import { YearlyStatsComponent } from './yearly-stats.component';
 
-describe('HighestExpenseComponent', () => {
-  let component: HighestExpenseComponent;
-  let fixture: ComponentFixture<HighestExpenseComponent>;
+describe('YearlyStatsComponent', () => {
+  let component: YearlyStatsComponent;
+  let fixture: ComponentFixture<YearlyStatsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HighestExpenseComponent ]
+      declarations: [ YearlyStatsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HighestExpenseComponent);
+    fixture = TestBed.createComponent(YearlyStatsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

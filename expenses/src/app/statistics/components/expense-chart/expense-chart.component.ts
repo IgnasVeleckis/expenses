@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Chart } from 'chart.js';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/core/models/app-state.model';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ExpenseItem } from 'src/core/models/expense-item.model';
 
 @Component({
@@ -11,11 +11,15 @@ import { ExpenseItem } from 'src/core/models/expense-item.model';
   styleUrls: ['./expense-chart.component.scss']
 })
 export class ExpenseChartComponent implements OnInit, OnDestroy {
-  expenseNames = [];
-  expenseAmounts = [];
+  expenseNamesMon = [];
+  expenseAmountsMon = [];
+
+  expenseNamesSin = [];
+  expenseAmountsSin = [];
   
   subscribed: Subscription;
   expenseItemsMonthly$: Observable<Array<ExpenseItem>>
+  expenseItemsSingle$: Observable<Array<ExpenseItem>>
 
 
   constructor(
@@ -26,16 +30,26 @@ export class ExpenseChartComponent implements OnInit, OnDestroy {
     this.expenseItemsMonthly$ = this.store.select(store => store.expenses.filter(a => {
       return a.type === 'monthly'
     }));
+    this.expenseItemsSingle$ = this.store.select(store => store.expenses.filter(a => {
+      return a.type === 'single'
+    }))
     this.getNamesAndData()
 
   }
 
   getNamesAndData() {
     this.subscribed = this.expenseItemsMonthly$.subscribe(
-      name => name.map(a => this.expenseAmounts.push(a.takesPerMonth))
+      name => name.map(a => this.expenseAmountsMon.push(a.takesPerMonth))
     )
     this.subscribed = this.expenseItemsMonthly$.subscribe(
-      data => data.map(a => this.expenseNames.push(a.name))
+      data => data.map(a => this.expenseNamesMon.push(a.name))
+    )
+
+    this.subscribed = this.expenseItemsSingle$.subscribe(
+      name => name.map(a => this.expenseAmountsSin.push(a.takesPerMonth))
+    )
+    this.subscribed = this.expenseItemsSingle$.subscribe(
+      data => data.map(a => this.expenseNamesSin.push(a.name))
     )
   }
 

@@ -15,6 +15,9 @@ export class ExpensesMonthlyComponent implements OnInit, OnDestroy {
 
   expenseItems$: Observable<Array<ExpenseItem>>
   totalArray = [];
+
+x = []
+
   totalNumber: number;
   subscribed: Subscription;
 

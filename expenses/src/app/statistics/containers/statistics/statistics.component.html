@@ -1,4 +1,23 @@
-<app-navigation (loadedStatistics)="change($event)"></app-navigation>
+<div class="navigation">
+    <app-navigation (loadedStatistics)="change($event)"></app-navigation>
+</div>
 
-<app-expense-chart *ngIf="statisticsNavStatus == 'expenses'"></app-expense-chart>
-<app-income-chart *ngIf="statisticsNavStatus == 'incomes'"></app-income-chart>
+<div class="display">
+
+    <div class="day" *ngIf="statisticsNavStatus === 'dayStat'">
+        <app-daily-stats></app-daily-stats>
+        <div>cia trui but incomes, bugas kai vienodi pav expense
+        </div>
+    </div>
+
+    <div class="month" *ngIf="statisticsNavStatus === 'monthStat'">
+        <app-monthly-stats></app-monthly-stats>
+        <div>cia trui but incomes</div>
+    </div>
+
+    <div class="year" *ngIf="statisticsNavStatus === 'yearStat'">
+        <app-yearly-stats></app-yearly-stats>
+        <div>cia trui but incomes</div>
+    </div>
+
+</div>

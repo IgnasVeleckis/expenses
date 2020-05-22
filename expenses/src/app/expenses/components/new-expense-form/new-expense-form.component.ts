@@ -24,6 +24,7 @@ export class NewExpenseFormComponent implements OnDestroy, OnInit {
   expenseForm: any;
   expenseType: 'single' | 'monthly';
   expenseItemDate: any;
+  dateFormated: string;
 
   newExpensesItem: ExpenseItem = {
     id: '',
@@ -64,6 +65,7 @@ export class NewExpenseFormComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit() { // generates current date for forms placeholders
+    this.expenseItems$ = this.store.select(store => store.expenses)
     this.getDate();
   }
 
@@ -101,7 +103,10 @@ export class NewExpenseFormComponent implements OnDestroy, OnInit {
 
   getDate() { // gets current date and time
     this.expenseItemDate = new Date();
-    return this.expenseItemDate;
+    console.log(this.expenseItemDate)
+    this.dateFormated = this.expenseItemDate.getFullYear() + '-' + (this.expenseItemDate.getMonth() + 1) + '-' + this.expenseItemDate.getDate()
+    console.log(this.dateFormated)
+    return this.dateFormated;
   }
 
   // from tutorial

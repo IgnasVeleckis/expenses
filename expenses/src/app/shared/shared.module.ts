@@ -13,14 +13,15 @@ import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { IconButtonComponent } from './components/icon-button/icon-button.component';
 
 
-const COMPONENTS = [ButtonComponent, IconComponent, InputComponent, PieChartComponent]
+const COMPONENTS = [ButtonComponent, IconComponent, InputComponent]
+const CHARTS = [PieChartComponent, BarChartComponent, RadarChartComponent, DoughnutChartComponent, LineChartComponent]
 
 @NgModule({
-  declarations: [...COMPONENTS, RadarChartComponent, DoughnutChartComponent, BarChartComponent, LineChartComponent, IconButtonComponent],
+  declarations: [...COMPONENTS, ...CHARTS],
   imports: [
     CommonModule,
     ChartsModule
   ],
-  exports: [...COMPONENTS, LineChartComponent]
+  exports: [...COMPONENTS, ...CHARTS]
 })
 export class SharedModule { }

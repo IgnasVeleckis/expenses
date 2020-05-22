@@ -2,21 +2,20 @@
 
     <div class="income-source">
 
-      <app-income-list></app-income-list>
 
-      <div class="buttons flex justify-center p-t-xl">
-        <app-button text="ADD INCOME SOURCEEE" (click)="toggleAddIncomeTable()"></app-button>
-      </div>
+        <div class="buttons flex justify-center p-t-xl">
+            <app-button text="ADD INCOME SOURCEEE" (click)="toggleAddIncomeTable()"></app-button>
+        </div>
 
     </div>
 
 
-  <div class="addIncomeTable shadow-light p-md" [ngClass]="incomeTableStatus? 'show' : 'hide'" >
-    <div class="flex justify-flex-end">
-      <app-icon (click)="toggleAddIncomeTable()"></app-icon>
+    <div class="addIncomeTable shadow-light p-md" [ngClass]="incomeTableStatus? 'show' : 'hide'">
+        <div class="flex justify-flex-end">
+            <app-icon (click)="toggleAddIncomeTable()"></app-icon>
+        </div>
+        <app-new-income-form></app-new-income-form>
     </div>
-    <app-new-income-form></app-new-income-form>
-  </div>
 
 
 </div>

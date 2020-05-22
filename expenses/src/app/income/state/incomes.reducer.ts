@@ -6,31 +6,37 @@ const initialIncomeState: Array<IncomeItem> = [
   {
     id: '505h16ocfy2ewj1kpus3ba',
     name: 'Flat rent',
-    status: 'active',
+    status: 'monthly',
     generatesPerMonth: 1,
   },
   {
     id: '505h16ocfy2ewj1kpus3bb',
     name: 'Taxes',
-    status: 'active',
+    status: 'monthly',
     generatesPerMonth: 2,
   },
   {
     id: '505h16ocfy2ewj1kpus3bc',
     name: 'Car',
-    status: 'active',
+    status: 'monthly',
     generatesPerMonth: 3,
   },
   {
     id: '505h16ocfy2ewj1kpus3bd',
     name: 'Groceries',
-    status: 'active',
+    status: 'monthly',
     generatesPerMonth: 4,
   },
   {
     id: '505h16ocfy2ewj1kpus3be',
     name: 'Phones',
-    status: 'active',
+    status: 'monthly',
+    generatesPerMonth: 5,
+  },
+  {
+    id: '505h16ocfy2ewj1kpus3be',
+    name: 'Phones',
+    status: 'single',
     generatesPerMonth: 5,
   },
 ];
