@@ -1,4 +1,9 @@
 <div class="chart-wrapper">
-    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+    <div class="title flex justify-center m-b-md text-lg">
+        {{ title }}
+    </div>
+    <div class="chart-container">
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
   </canvas>
+    </div>
 </div>

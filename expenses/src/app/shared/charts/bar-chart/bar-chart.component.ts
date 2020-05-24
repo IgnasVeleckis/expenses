@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 
@@ -8,9 +8,11 @@ import { Label } from 'ng2-charts';
   styleUrls: ['./bar-chart.component.scss']
 })
 export class BarChartComponent implements OnInit {
-  chartLabel = 'This year expenses'
-  chartsXAxis = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
-  chartsYAxis = [360, 320, 410, 295, 365, 330, 425, 300, 324, 386, 333, 466];
+  @Input() title: string;
+  @Input() statData // : number[];
+  
+  chartsXAxis = [];
+  chartYAxis = [];
 
   barChartOptions: ChartOptions = {
     responsive: true,
@@ -21,11 +23,42 @@ export class BarChartComponent implements OnInit {
   barChartPlugins = [];
 
   barChartData: ChartDataSets[] = [
-    { data: this.chartsYAxis, label: this.chartLabel }
+    { data: this.chartYAxis, label: this.title }
   ];
   constructor() { }
 
   ngOnInit() {
+    this.splitIntoAxis()
+  }
+
+  splitIntoAxis() {
+    for(let i = 1; i < 32; i++){
+      this.chartsXAxis.push(i.toString())
+    }
+
+    console.log(this.chartYAxis)
+    
+    for (let i = 1; i < 32; i++) {
+      let pushZero
+      for(let y = 0; y < this.statData.length; y++) {
+        if (i == this.statData[y].date) {
+          
+          this.chartYAxis.pop()
+          this.chartYAxis.push(this.statData[y].takes)
+          pushZero = 'false'
+        } else {
+          pushZero = 'true'
+        }  
+      } 
+        
+      if (pushZero == 'true') {
+        this.chartYAxis.push(0)
+        pushZero = 'false'
+      }
+     
+
+    }
+    
   }
 
 }
