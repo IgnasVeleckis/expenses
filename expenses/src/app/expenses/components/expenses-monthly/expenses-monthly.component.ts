@@ -16,10 +16,12 @@ export class ExpensesMonthlyComponent implements OnInit, OnDestroy {
   expenseItems$: Observable<Array<ExpenseItem>>
   totalArray = [];
 
-x = []
-
   totalNumber: number;
   subscribed: Subscription;
+
+  allExpenses = [];
+  date: Date;
+  month;
 
   constructor(
     private store: Store<AppState>,
@@ -36,30 +38,38 @@ x = []
   }
 
   ngOnInit() {
+    this.date = new Date;
+    this.month = this.date.getMonth() + 1
     this.expenseItems$ = this.store.select(store => store.expenses.filter(a =>{
-      return a.type === 'monthly'
-    }
-      ));
+      if(a.dateAdded.split('')[6] == '-') {
+        return a.type === 'monthly' && a.dateAdded.split('')[5] === this.month.toString();
+      } else if (a.dateAdded.split('')[7] == '-') {
+        return a.type === 'monthly' && a.dateAdded.split('')[5] + a.dateAdded.split('')[6] === this.month.toString();
+      }
+    }));
+    
+    this.subscribed = this.expenseItems$.subscribe(a => {
+      for(let item in a) {
+        this.allExpenses.push(a[item])
+      }
+    })
+
+    
 
     this.calcTotal();
     
   }
 
   calcTotal() {
-    this.subscribed = this.expenseItems$.subscribe(
-      data => data.map(a =>
-        this.totalArray.push(a.takesPerMonth) 
-        )
-    );
-
+    this.allExpenses.reverse()
+    for (let i = 0; i < this.allExpenses.length; i++) {
+      this.totalArray.push(this.allExpenses[i].takesPerMonth) 
+    }
     if (this.totalArray.length > 0) {
       this.totalNumber = this.totalArray.reduce((a, b) => {
         return a + b;
       });
     }
-
-
-
   }
 
   ngOnDestroy() {
@@ -80,7 +90,6 @@ x = []
     } else if(this.totalArray.length == 0) {
       this.totalNumber = 0;
     }
-
   }
 
 }

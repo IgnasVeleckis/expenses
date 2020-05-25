@@ -9,7 +9,8 @@ import { Label } from 'ng2-charts';
 })
 export class BarChartComponent implements OnInit {
   @Input() title: string;
-  @Input() statData // : number[];
+  @Input() statData;
+  @Input() for: 'month' | 'year';
   
   chartsXAxis = [];
   chartYAxis = [];
@@ -28,37 +29,23 @@ export class BarChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.splitIntoAxis()
+    if(this.for === 'month') {
+      this.splitIntoAxis(32)
+    } else if(this.for === 'year') {
+      this.splitIntoAxis(13)
+    }
   }
 
-  splitIntoAxis() {
-    for(let i = 1; i < 32; i++){
-      this.chartsXAxis.push(i.toString())
-    }
-
-    console.log(this.chartYAxis)
-    
-    for (let i = 1; i < 32; i++) {
-      let pushZero
-      for(let y = 0; y < this.statData.length; y++) {
-        if (i == this.statData[y].date) {
-          
-          this.chartYAxis.pop()
-          this.chartYAxis.push(this.statData[y].takes)
-          pushZero = 'false'
-        } else {
-          pushZero = 'true'
-        }  
-      } 
-        
-      if (pushZero == 'true') {
-        this.chartYAxis.push(0)
-        pushZero = 'false'
+  splitIntoAxis(splitInto: number) {
+    for (let i = 1; i < splitInto; i++) {
+      this.chartsXAxis.push(i.toString());
+      this.chartYAxis.push(0);
+      for (let x = 0; x < this.statData.length; x++) {
+        if (i == this.statData[x].date) {
+          this.chartYAxis[i] = this.statData[x].takes
+        } 
       }
-     
-
     }
-    
+    this.chartYAxis.shift()
   }
-
 }

@@ -5,17 +5,34 @@
 <div class="display">
 
     <div class="day" *ngIf="statisticsNavStatus === 'dayStat'">
+        <div class="navDays flex">
+            <button>Prev day</button>
+            <button>Current day</button>
+            <button>Next day</button>
+        </div>
         <app-daily-stats></app-daily-stats>
         <div>cia trui but incomes, bugas kai vienodi pav expense
         </div>
     </div>
 
     <div class="month" *ngIf="statisticsNavStatus === 'monthStat'">
-        <app-monthly-stats></app-monthly-stats>
+        <div class="navMonths flex">
+            <button>Prev month</button>
+            <button>Current month</button>
+            <button>Next month</button>
+        </div>
+        <div class="test">
+            <app-monthly-stats></app-monthly-stats>
+        </div>
         <div>cia trui but incomes</div>
     </div>
 
     <div class="year" *ngIf="statisticsNavStatus === 'yearStat'">
+        <div class="navYears flex">
+            <button>Prev year</button>
+            <button>Current year</button>
+            <button>Next year</button>
+        </div>
         <app-yearly-stats></app-yearly-stats>
         <div>cia trui but incomes</div>
     </div>
