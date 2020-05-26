@@ -24,4 +24,4 @@ for (let month = 1; month < 8; month++) {
     }
 }
 
-console.dir(data, { 'maxArrayLength': null });
+console.dir(data.reverse(), { 'maxArrayLength': null });

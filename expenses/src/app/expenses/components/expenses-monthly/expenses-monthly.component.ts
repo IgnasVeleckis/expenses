@@ -53,15 +53,11 @@ export class ExpensesMonthlyComponent implements OnInit, OnDestroy {
         this.allExpenses.push(a[item])
       }
     })
-
-    
-
     this.calcTotal();
     
   }
 
   calcTotal() {
-    this.allExpenses.reverse()
     for (let i = 0; i < this.allExpenses.length; i++) {
       this.totalArray.push(this.allExpenses[i].takesPerMonth) 
     }
